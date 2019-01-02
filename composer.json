@@ -1,0 +1,24 @@
+{
+    "name": "andyvanee/miniroute",
+    "description": "A minimal router for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "andyvanee",
+            "email": "1andyvanee@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "phpunit --bootstrap test/bootstrap.php test/"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    }
+}
