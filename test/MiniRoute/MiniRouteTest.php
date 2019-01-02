@@ -5,10 +5,7 @@ namespace MiniRoute;
 use PHPUnit\Framework\TestCase;
 
 class MyController {
-    public function __construct($container) {
-        // $this->view = $container->view;
-        // $this->store = $container->store;
-    }
+    public function __construct($container) {}
 
     public function index($request, $response) {
         echo 'Hello World';
