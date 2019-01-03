@@ -1,7 +1,8 @@
 MiniRoute
 ========================================
 
-A minimal router/application framework for PHP.
+A minimal router/application framework for PHP. This code is **pre-alpha** and
+is therefore subject to change in very substantial ways!
 
 ### Install
 
