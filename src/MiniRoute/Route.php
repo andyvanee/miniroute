@@ -3,9 +3,17 @@
 namespace MiniRoute;
 
 class Route {
-    public function __construct($path, $callback) {
+    public $path;
+
+    public $callback;
+    public $cls;
+    public $fn;
+
+    public function __construct($path, $callback, $cls, $fn) {
         $this->path = $path;
         $this->callback = $callback;
+        $this->cls = $cls;
+        $this->fn = $fn;
     }
 
     public function match($path) {

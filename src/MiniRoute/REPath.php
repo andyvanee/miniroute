@@ -12,4 +12,8 @@ class REPath {
         preg_match($this->re, $path, $matches);
         return $matches;
     }
+
+    public function __toString() {
+        return $this->re;
+    }
 }
