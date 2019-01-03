@@ -24,6 +24,10 @@ class MiniRoute {
         return $this->callbacks;
     }
 
+    public function isStatic() {
+        return is_file(trim($this->request->path, '/'));
+    }
+
     public function route($method, $path, $callback) {
         if (is_array($callback)) {
 
@@ -80,6 +84,10 @@ class MiniRoute {
         $this->request = new Request;
         $this->response = new Response;
 
+        if ($this->isStatic()) {
+            return false;
+        }
+
         $handled = false;
 
         $this->sortRoutes();
@@ -99,6 +107,7 @@ class MiniRoute {
             http_response_code(400);
             echo "Page not found";
         }
+        return true;
     }
 
     /**
