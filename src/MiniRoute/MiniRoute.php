@@ -80,6 +80,10 @@ class MiniRoute {
         return ($a == $b) ? 0 : ($a < $b) ? 1 : -1;
     }
 
+    /**
+     * Process the request. This will return true if the request was handled
+     * and false if it wasn't (eg: in the case of static files)
+     */
     public function run() {
         $this->request = new Request;
         $this->response = new Response;
