@@ -29,6 +29,22 @@ class MiniRouteTest extends TestCase {
         $this->assertEquals('Hello World', $output);
     }
 
+    public function testRouteMatching() {
+        $this->app->route('GET', '/prefix', [MyController::class, 'index']);
+        $routes = $this->app->getCallbacks()['GET'];
+
+        $this->assertTrue($routes[0]->path == '/prefix');
+        $this->assertFalse($routes[0]->match('/unmatch/prefix/test'));
+        $this->assertTrue($routes[0]->match('/prefix/test'));
+        // Not sure if the following *should* match, but it does...
+        $this->assertTrue($routes[0]->match('/prefixtest'));
+
+        // Root path matches basically everything
+        $this->assertTrue($routes[1]->path == '/');
+        $this->assertTrue($routes[1]->match('/'));
+        $this->assertTrue($routes[1]->match('/prefix/test/this'));
+    }
+
     /**
      * Route ordering follows Nginx routing rules
      * - Pattern routes take precedence and are matched in the order that they

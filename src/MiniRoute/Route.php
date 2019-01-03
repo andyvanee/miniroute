@@ -18,7 +18,7 @@ class Route {
 
     public function match($path) {
         if (is_string($this->path)) {
-            return $this->path == $path;
+            return strpos($path, $this->path) === 0;
         }
         return $this->path->match($path);
     }
